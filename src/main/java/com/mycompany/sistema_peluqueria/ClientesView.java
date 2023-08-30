@@ -357,6 +357,7 @@ public class ClientesView extends javax.swing.JFrame {
             limpiarCampos();
             btnActualizar.setVisible(false);
             btnAñadir.setVisible(true);
+            btnEliminar.setVisible(false);
             lbl_idCliente.setVisible(false);
             txt_idCliente.setVisible(false);
             //Muestra una ventana de dialogo con el mensaje 
