@@ -7,6 +7,7 @@ package com.mycompany.sistema_peluqueria;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -60,8 +61,13 @@ public class ClientesView extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         lbl_nombreCliente = new java.awt.Label();
         txt_nombresCliente = new java.awt.TextField();
+        btn_regresarClientes = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnActualizar.setText("Actualizar");
         btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -151,6 +157,13 @@ public class ClientesView extends javax.swing.JFrame {
             }
         });
 
+        btn_regresarClientes.setLabel("Regresar");
+        btn_regresarClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_regresarClientesMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -158,18 +171,11 @@ public class ClientesView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(204, 204, 204)
+                        .addGap(232, 232, 232)
                         .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(btnEliminar)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnActualizar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnAñadir))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(28, 28, 28)
@@ -187,13 +193,23 @@ public class ClientesView extends javax.swing.JFrame {
                                     .addComponent(txt_idCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btnEliminar)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(btnActualizar)
+                                    .addGap(12, 12, 12)
+                                    .addComponent(btnAñadir))
+                                .addComponent(btn_regresarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -205,7 +221,7 @@ public class ClientesView extends javax.swing.JFrame {
                                         .addGap(46, 46, 46))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(24, 24, 24)))
+                                        .addGap(28, 28, 28)))
                                 .addComponent(txt_idCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,29 +240,52 @@ public class ClientesView extends javax.swing.JFrame {
                     .addComponent(btnActualizar)
                     .addComponent(btnEliminar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-                .addGap(41, 41, 41))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                .addGap(17, 17, 17)
+                .addComponent(btn_regresarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_regresarClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_regresarClientesMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new MenuView().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_btn_regresarClientesMouseClicked
+
+    private void txt_nombresClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombresClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombresClienteActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
+        // TODO add your handling code here:
+        eliminarCliente();
+    }//GEN-LAST:event_btnEliminarMouseClicked
+
+    private void btnAñadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAñadirMouseClicked
+        agregarCliente();
+    }//GEN-LAST:event_btnAñadirMouseClicked
 
     private void txt_rucClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_rucClienteActionPerformed
         // TODO add your handling code here:
@@ -255,21 +294,6 @@ public class ClientesView extends javax.swing.JFrame {
     private void txt_telefonoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telefonoClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_telefonoClienteActionPerformed
-
-    private void txt_idClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idClienteActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_txt_idClienteActionPerformed
-
-    private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
-        // TODO add your handling code here:
-        eliminarCliente();
-    }//GEN-LAST:event_btnEliminarMouseClicked
-
-    private void btnAñadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAñadirMouseClicked
-        System.out.println("se dio click");
-        agregarCliente();
-    }//GEN-LAST:event_btnAñadirMouseClicked
 
     private void tbl_listaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaClientesMouseClicked
         // TODO add your handling code here:
@@ -285,17 +309,12 @@ public class ClientesView extends javax.swing.JFrame {
         lbl_idCliente.setVisible(true);
     }//GEN-LAST:event_tbl_listaClientesMouseClicked
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+    private void txt_idClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void txt_nombresClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombresClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nombresClienteActionPerformed
+    }//GEN-LAST:event_txt_idClienteActionPerformed
 
     private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
         actualizarCliente();
-
     }//GEN-LAST:event_btnActualizarMouseClicked
 
     
@@ -387,11 +406,13 @@ public class ClientesView extends javax.swing.JFrame {
         }
 
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnAñadir;
     private javax.swing.JButton btnEliminar;
+    private java.awt.Button btn_regresarClientes;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;

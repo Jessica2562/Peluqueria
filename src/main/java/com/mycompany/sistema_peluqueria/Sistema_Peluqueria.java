@@ -15,7 +15,7 @@ public class Sistema_Peluqueria {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new ClientesView().setVisible(true);
+                new MenuView().setVisible(true);
             }
         });
     }

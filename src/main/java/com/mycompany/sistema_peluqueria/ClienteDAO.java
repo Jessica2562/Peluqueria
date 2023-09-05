@@ -59,7 +59,7 @@ public class ClienteDAO {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                Cliente cliente = new Cliente(resultSet.getInt("id"), resultSet.getString("RUC"), resultSet.getString("nombre"), resultSet.getString("telefono"));
+                Cliente cliente = new Cliente(resultSet.getInt("idCliente"), resultSet.getString("rucCliente"), resultSet.getString("nombresCliente"), resultSet.getString("telefonoCliente"));
                 return cliente;
             }
         } catch (SQLException e) {
